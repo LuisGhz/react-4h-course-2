@@ -33,9 +33,9 @@ function App() {
   
   // The second argument is the dependency that we want to watch.
   // If the second argument is set to [] the alert will showed once.
-  useEffect(() => {
-    alert('Alert js')
-  }, [cards]);
+  // useEffect(() => {
+  //   alert('Alert js')
+  // }, [cards]);
   const buttonClasses = ['button']
   
   if (cards.length < 3) buttonClasses.push('pink-button');
