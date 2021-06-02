@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Card } from 'card/index';
 import Button from 'elements/button/Button';
@@ -10,8 +10,9 @@ const theme = {
 }
 
 function App() {
+  
   const [showCard, setShowCard] = useState(true);
-
+  
   const [cards, setCards] = useState([
     {
       avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
@@ -29,14 +30,17 @@ function App() {
       title: 'Customer Research Developer'
     },
   ]);
-
+  
+  useEffect(() => {
+    alert('Alert js')
+  }, [cards]);
   const buttonClasses = ['button']
-
+  
   if (cards.length < 3) buttonClasses.push('pink-button');
   if (cards.length < 2) buttonClasses.push('red-button');
-
+  
   const toggleCard = () => setShowCard(!showCard);
-
+  
   const deleteCardHandler = (index)  => {
     const cards_copy = [...cards];
     cards_copy.splice(index, 1);
