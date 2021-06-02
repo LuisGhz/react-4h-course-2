@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import axios from 'axios';
 import { Card } from 'card/index';
-import Button from 'elements/button/Button';
 import './App.css';
 
 const theme = {
@@ -13,8 +12,9 @@ const theme = {
 function App() {
   
   const [showCard, setShowCard] = useState(true);
+  const [id, setId] = useState(1);
   
-  const [cards, setCards] = useState([]);
+  const [card, setCard] = useState([]);
   
   // The second argument is the dependency that we want to watch.
   // If the second argument is set to [] the alert will showed once.
@@ -23,37 +23,28 @@ function App() {
   // }, [cards]);
 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users')
+    axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
     .then(res => {
       console.log(res.data)
-      setCards(res.data)
+      setCard(res.data)
     })
-  }, []);
+  }, [id]);
 
-  const buttonClasses = ['button']
-  
-  if (cards.length < 3) buttonClasses.push('pink-button');
-  if (cards.length < 2) buttonClasses.push('red-button');
-  
-  const toggleCard = () => setShowCard(!showCard);
-
-  const changeNameHandler = (event, index) => {
-    const cards_copy = [...cards];
-    cards_copy[index].name = event.target.value;
-    setCards(cards_copy);
+  const changeNameHandler = (event,) => {
+    const card_copy = {...card};
+    card_copy.name = event.target.value;
+    setCard(card_copy);
   }
 
   return (
     <ThemeProvider theme={ theme }>
       <div className="App">
-        <button className={ buttonClasses.join(' ') } onClick={ () => toggleCard() } style={{ 'margin': '1rem 0' } }>Show / Hide card</button>
         { showCard && (
-        cards.map(({ name, phone }, index) => 
-          <Card key={ index }
-            name={ name }
-            phone={ phone }
-            onNameChanges={ event =>  changeNameHandler(event, index)}
-          />)
+          <Card
+            name={ card.name }
+            phone={ card.phone }
+            onNameChanges={ event =>  changeNameHandler(event)}
+          />
         )}
       </div>
     </ThemeProvider>
