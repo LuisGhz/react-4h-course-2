@@ -11,9 +11,7 @@ const theme = {
 
 function App() {
   
-  const [showCard, setShowCard] = useState(true);
   const [id, setId] = useState(1);
-  
   const [card, setCard] = useState([]);
   
   // The second argument is the dependency that we want to watch.
@@ -39,7 +37,7 @@ function App() {
   return (
     <ThemeProvider theme={ theme }>
       <div className="App">
-        { showCard && (
+        {(
           <Card
             name={ card.name }
             phone={ card.phone }
