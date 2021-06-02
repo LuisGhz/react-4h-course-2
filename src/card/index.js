@@ -1,6 +1,23 @@
+import { useEffect, useState } from 'react';
 import './index.css';
 
 export const Card = props => {
+
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+
+  const recordMouse = e => {
+    setX(e.clientX);
+    setY(e.clientY);
+  }
+
+  console.log(`Mouse x: ${ x }`);
+  console.log(`Mouse y: ${ y }`);
+
+  useEffect(() => {
+    window.addEventListener('mousemove', recordMouse);
+  }, [])
+
   return (
     <div className="card">
       <img src={`${ props.avatar }`} alt="Avatar" style={{ width: '100%' }} />
