@@ -1,4 +1,4 @@
-import React, { useState, /*useEffect*/ } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import axios from 'axios';
 import { Card } from 'card/index';
@@ -21,6 +21,15 @@ function App() {
   // useEffect(() => {
   //   alert('Alert js')
   // }, [cards]);
+
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/users')
+    .then(res => {
+      console.log(res.data)
+      setCards(res.data)
+    })
+  });
+
   const buttonClasses = ['button']
   
   if (cards.length < 3) buttonClasses.push('pink-button');
