@@ -36,12 +36,6 @@ function App() {
   if (cards.length < 2) buttonClasses.push('red-button');
   
   const toggleCard = () => setShowCard(!showCard);
-  
-  const deleteCardHandler = (index)  => {
-    const cards_copy = [...cards];
-    cards_copy.splice(index, 1);
-    setCards(cards_copy)
-  }
 
   const changeNameHandler = (event, index) => {
     const cards_copy = [...cards];
@@ -59,7 +53,6 @@ function App() {
           <Card key={ index }
             name={ name }
             phone={ phone }
-            onDelete={ () => deleteCardHandler(index) }
             onNameChanges={ event =>  changeNameHandler(event, index)}
           />)
         )}
