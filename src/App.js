@@ -46,7 +46,6 @@ function App() {
   return (
     <ThemeProvider theme={ theme }>
       <div className="App">
-        <Button color="primary" length={ cards.length } >Show Hide</Button>
         <button className={ buttonClasses.join(' ') } onClick={ () => toggleCard() } style={{ 'margin': '1rem 0' } }>Show / Hide card</button>
         { showCard && (
         cards.map(({ name, phone }, index) => 
