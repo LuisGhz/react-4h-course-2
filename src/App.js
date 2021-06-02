@@ -31,6 +31,8 @@ function App() {
     },
   ]);
   
+  // The second argument is the dependency that we want to watch.
+  // If the second argument is set to [] the alert will showed once.
   useEffect(() => {
     alert('Alert js')
   }, [cards]);
