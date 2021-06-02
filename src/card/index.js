@@ -16,6 +16,11 @@ export const Card = props => {
 
   useEffect(() => {
     window.addEventListener('mousemove', recordMouse);
+
+    return () => {
+      console.log('Card component clean up');
+      window.removeEventListener('mousemove', recordMouse);
+    }
   }, [])
 
   return (
