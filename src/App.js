@@ -1,5 +1,6 @@
 import React, { useState, /*useEffect*/ } from 'react';
 import { ThemeProvider } from 'styled-components';
+import axios from 'axios';
 import { Card } from 'card/index';
 import Button from 'elements/button/Button';
 import './App.css';
@@ -13,23 +14,7 @@ function App() {
   
   const [showCard, setShowCard] = useState(true);
   
-  const [cards, setCards] = useState([
-    {
-      avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
-      name: 'Edwin 1',
-      title: 'Customer Research Developer'
-    },
-    {
-      avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
-      name: 'Edwin 2',
-      title: 'Customer Research Developer'
-    },
-    {
-      avatar: 'https://cdn.fakercloud.com/avatars/mwarkentin_128.jpg',
-      name: 'Edwin 3',
-      title: 'Customer Research Developer'
-    },
-  ]);
+  const [cards, setCards] = useState([]);
   
   // The second argument is the dependency that we want to watch.
   // If the second argument is set to [] the alert will showed once.
