@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, /*useEffect*/ } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Card } from 'card/index';
 import Button from 'elements/button/Button';
