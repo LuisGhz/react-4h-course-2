@@ -38,11 +38,14 @@ function App() {
     <ThemeProvider theme={ theme }>
       <div className="App">
         {(
-          <Card
-            name={ card.name }
-            phone={ card.phone }
-            onNameChanges={ event =>  changeNameHandler(event)}
-          />
+          <div>
+            <input type="number" value={ id } onChange={ e => setId(e.target.value) } />
+            <Card
+              name={ card.name }
+              phone={ card.phone }
+              onNameChanges={ event =>  changeNameHandler(event)}
+            />
+          </div>
         )}
       </div>
     </ThemeProvider>
