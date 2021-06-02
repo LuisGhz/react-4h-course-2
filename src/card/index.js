@@ -1,27 +1,27 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import './index.css';
 
 export const Card = props => {
 
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
+  // const [x, setX] = useState(0);
+  // const [y, setY] = useState(0);
 
-  const recordMouse = e => {
-    setX(e.clientX);
-    setY(e.clientY);
-  }
+  // const recordMouse = e => {
+  //   setX(e.clientX);
+  //   setY(e.clientY);
+  // }
 
-  console.log(`Mouse x: ${ x }`);
-  console.log(`Mouse y: ${ y }`);
+  // console.log(`Mouse x: ${ x }`);
+  // console.log(`Mouse y: ${ y }`);
 
-  useEffect(() => {
-    window.addEventListener('mousemove', recordMouse);
+  // useEffect(() => {
+  //   window.addEventListener('mousemove', recordMouse);
 
-    return () => {
-      console.log('Card component clean up');
-      window.removeEventListener('mousemove', recordMouse);
-    }
-  }, [])
+  //   return () => {
+  //     console.log('Card component clean up');
+  //     window.removeEventListener('mousemove', recordMouse);
+  //   }
+  // }, [])
 
   return (
     <div className="card">
