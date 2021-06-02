@@ -28,7 +28,7 @@ function App() {
       console.log(res.data)
       setCards(res.data)
     })
-  });
+  }, []);
 
   const buttonClasses = ['button']
   
